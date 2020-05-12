@@ -1,0 +1,7 @@
+This project realize Earliest-Deadline-First near real-time scheduling function in MINIX3
+In the user program, you can call multiple chrt system calls at different locations. 
+Before reaching the deadline, calling chrt will change the program's deadline.
+Programs that do not call chrt will run in the system as ordinary user processes (non-real-time processes).
+在MINIX3中实现Earliest-Deadline-First近似实时调度功能
+在用户程序中，可以在不同位置调用多次chrt系统调用，在未到deadline之前，调用chrt将会改变该程序的deadline。
+未调用chrt的程序将以普通的用户进程(非实时进程)在系统中运行。
