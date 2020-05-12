@@ -1,0 +1,6 @@
+This is a simple shell
+It support pipeline, input and output redirection, background process
+It has implemented built-in commands like cd, mytop, exit, history
+实现了一个简单的shell
+支持管道，输入输出重定向，后台进程
+实现内置命令cd,mytop,exit,history
