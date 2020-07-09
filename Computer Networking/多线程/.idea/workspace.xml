@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="cb18029a-e412-4eaf-9b24-67acd93f4620" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="module-info" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectId" id="1ZlHoypwgdviCUQbEUKzB0XmjLb" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors" />
+  </component>
+  <component name="RunAnythingCache">
+    <option name="myCommands">
+      <command value="RPCClient" />
+    </option>
+  </component>
+  <component name="RunManager" selected="Application.WebServer (1)">
+    <configuration name="RPCClient" type="Application" factoryName="Application" singleton="false" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="exp6.RPCClient" />
+      <module name="多线程" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="exp6.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RPCServer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="exp6.RPCServer" />
+      <module name="多线程" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="exp6.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TCPClient (1)" type="Application" factoryName="Application" singleton="false" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="exp5.TCPClient" />
+      <module name="多线程" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="exp5.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestServer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="exp5.TestServer" />
+      <module name="多线程" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="exp5.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="WebServer (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="finals.WebServer" />
+      <module name="多线程" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="finals.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="WebServer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="WebServer" />
+      <module name="多线程" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.RPCClient" />
+      <item itemvalue="Application.TCPClient (1)" />
+      <item itemvalue="Application.TestServer" />
+      <item itemvalue="Application.WebServer" />
+      <item itemvalue="Application.RPCServer" />
+      <item itemvalue="Application.WebServer (1)" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.WebServer (1)" />
+        <item itemvalue="Application.WebServer" />
+        <item itemvalue="Application.RPCServer" />
+        <item itemvalue="Application.TCPClient (1)" />
+        <item itemvalue="Application.TestServer" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="cb18029a-e412-4eaf-9b24-67acd93f4620" name="Default Changelist" comment="" />
+      <created>1585406938745</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1585406938745</updated>
+      <workItem from="1585406951791" duration="681000" />
+      <workItem from="1585445055508" duration="12798000" />
+      <workItem from="1587868433077" duration="27784000" />
+      <workItem from="1589860705340" duration="8252000" />
+      <workItem from="1590572620156" duration="839000" />
+      <workItem from="1591168662681" duration="920000" />
+      <workItem from="1591408814608" duration="290000" />
+      <workItem from="1591664378825" duration="530000" />
+      <workItem from="1592471540175" duration="62000" />
+      <workItem from="1593921043246" duration="16876000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="184" y="112" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1590458286242">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="184" y="112" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1440.900@0.0.1440.900" timestamp="1590458286242" />
+    <state width="1396" height="153" key="GridCell.Tab.0.bottom" timestamp="1594305092722">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1396" height="153" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1594305092722" />
+    <state width="1396" height="197" key="GridCell.Tab.0.bottom/0.23.1440.826@0.23.1440.826" timestamp="1594297252013" />
+    <state width="1396" height="153" key="GridCell.Tab.0.center" timestamp="1594305092721">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1396" height="153" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1594305092721" />
+    <state width="1396" height="197" key="GridCell.Tab.0.center/0.23.1440.826@0.23.1440.826" timestamp="1594297252012" />
+    <state width="1396" height="153" key="GridCell.Tab.0.left" timestamp="1594305092720">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1396" height="153" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1594305092720" />
+    <state width="1396" height="197" key="GridCell.Tab.0.left/0.23.1440.826@0.23.1440.826" timestamp="1594297252011" />
+    <state width="1396" height="153" key="GridCell.Tab.0.right" timestamp="1594305092721">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1396" height="153" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1594305092721" />
+    <state width="1396" height="197" key="GridCell.Tab.0.right/0.23.1440.826@0.23.1440.826" timestamp="1594297252012" />
+    <state width="1396" height="302" key="GridCell.Tab.1.bottom" timestamp="1594296514185">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1396" height="302" key="GridCell.Tab.1.bottom/0.0.1440.900@0.0.1440.900" timestamp="1594296514185" />
+    <state width="1396" height="302" key="GridCell.Tab.1.center" timestamp="1594296514185">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1396" height="302" key="GridCell.Tab.1.center/0.0.1440.900@0.0.1440.900" timestamp="1594296514185" />
+    <state width="1396" height="302" key="GridCell.Tab.1.left" timestamp="1594296514184">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1396" height="302" key="GridCell.Tab.1.left/0.0.1440.900@0.0.1440.900" timestamp="1594296514184" />
+    <state width="1396" height="302" key="GridCell.Tab.1.right" timestamp="1594296514185">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1396" height="302" key="GridCell.Tab.1.right/0.0.1440.900@0.0.1440.900" timestamp="1594296514185" />
+    <state x="229" y="89" key="SettingsEditor" timestamp="1590414205450">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="229" y="89" key="SettingsEditor/0.0.1440.900@0.0.1440.900" timestamp="1590414205450" />
+    <state x="376" y="283" key="com.intellij.ide.util.TipDialog" timestamp="1593921045941">
+      <screen x="0" y="23" width="1440" height="826" />
+    </state>
+    <state x="376" y="284" key="com.intellij.ide.util.TipDialog/0.0.1440.900@0.0.1440.900" timestamp="1589860706299" />
+    <state x="376" y="283" key="com.intellij.ide.util.TipDialog/0.23.1440.826@0.23.1440.826" timestamp="1593921045941" />
+    <state x="376" y="284" key="com.intellij.ide.util.TipDialog/0.23.1440.828@0.23.1440.828" timestamp="1591408846648" />
+    <state x="376" y="284" key="com.intellij.ide.util.TipDialog/0.23.1440.843@0.23.1440.843" timestamp="1587869638452" />
+    <state x="386" y="85" width="667" height="729" key="find.popup" timestamp="1593921846045">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="386" y="85" width="667" height="729" key="find.popup/0.0.1440.900@0.0.1440.900" timestamp="1593921846045" />
+    <state x="114" y="72" key="new project wizard" timestamp="1590462218956">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="114" y="72" key="new project wizard/0.0.1440.900@0.0.1440.900" timestamp="1590462218956" />
+    <state x="385" y="210" width="670" height="675" key="run.anything.popup" timestamp="1590457863336">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="385" y="210" width="670" height="675" key="run.anything.popup/0.0.1440.900@0.0.1440.900" timestamp="1590457863336" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/exp4/TCPClient.java</url>
+          <line>10</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>

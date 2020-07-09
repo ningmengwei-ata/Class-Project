@@ -1,0 +1,13 @@
+syntax = "proto3";
+option java_multiple_files = true;
+option java_package = "";
+option java_outer_classname = "MyProto";
+option objc_class_prefix = "MY";
+package testgrpc;
+service Network {
+rpc CallBack (Request) returns (Reply) {}
+}
+message Request {
+string clientName = 1; }
+message Reply {
+string message = 1; }
