@@ -1,8 +1,8 @@
 # Class-Project
-一个包含数据科学本科专业课作业的项目文件夹\n
+一个包含数据科学本科专业课作业的项目文件夹<br>
 目前包括的课程有
 ## 一、操作系统
-（四个project ）
+（四个project ）<br>
 【一个简易的shell &三个修改minix实现 
 内存管理 I/O subsystem(ram盘管理）以及chrt调用的相关修改】
 ## 二、计算机网络
@@ -15,11 +15,11 @@
 ## 五、数据科学的数学基础
 课程python程序（图像压缩 欧式距离 旋转图片 谱图聚类 LU分解 SVD分解等）
 ## 六、计算机系统与云计算
-shlab in CMU
+shlab in CMU<br>
 loading...持续更新中
 
 ## ENGLISH VERSION
-A project folder containing data science undergraduate professional coursework
+A project folder containing data science undergraduate professional coursework<br>
 The courses currently included are
 ## 1. Operating system 
 (four projects)
@@ -36,5 +36,5 @@ Convolution& image smoothing& simulation poker calculation of straight flush pro
 ## 5.Mathematical Foundation of Data Science & Engineering
 python program (image compression &Euclidean distance &rotating picture &spectral clustering& LU decomposition& SVD decomposition, etc.)
 ## 6.Computer system and Cloud Computing
-shlab in CMU
+shlab in CMU<br>
 loading...
