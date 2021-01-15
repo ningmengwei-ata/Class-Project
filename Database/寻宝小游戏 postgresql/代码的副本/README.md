@@ -1,0 +1,1 @@
+pytest和coverage测试在"Treasure-Hunt的副本"，前端在"Treasure-Hunt-Web",由于相关接口略有不同，写了两个文件夹
