@@ -16,7 +16,18 @@
 课程python程序（图像压缩 欧式距离 旋转图片 谱图聚类 LU分解 SVD分解等）
 ## 六、计算机系统与云计算
 shlab in CMU<br>
+## 七、数据库
+寻宝小游戏（postgresql版&mongodb版）<br>
+## 八、算法
+1.图片PCA压缩<br>
+2.基于爬山算法的抽取式文档摘要
+## 九、统计
+1.蒙特卡洛求样本偏度峰度<br>
+2.区间估计<br>
+3.EM算法（同卵双胞胎问题）<br>
+4.随机投点法 平均值法<br>
 loading...持续更新中
+
 
 ## ENGLISH VERSION
 A project folder containing data science undergraduate professional coursework<br>
