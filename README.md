@@ -26,6 +26,8 @@ shlab in CMU<br>
 2.区间估计<br>
 3.EM算法（同卵双胞胎问题）<br>
 4.随机投点法 平均值法<br>
+## 十、分布式系统
+包括mapreduce、spark、flink 的java编程实现
 loading...持续更新中
 
 
@@ -48,4 +50,16 @@ Convolution& image smoothing& simulation poker calculation of straight flush pro
 python program (image compression &Euclidean distance &rotating picture &spectral clustering& LU decomposition& SVD decomposition, etc.)
 ## 6.Computer system and Cloud Computing
 shlab in CMU<br>
+## 7、 Database
+Treasure hunt game development (PostgreSQL version & mongodb version) < br >
+## 8、 Algorithm
+1. Image PCA compression < br >
+2. Extracted document summary based on mountain climbing algorithm
+## 9、 Statistics
+1. Calculate sample skewness and kurtosis by Monte Carlo < br >
+2. Interval estimation < br >
+3. EM algorithm (identical twins problem) < br >
+4. Random point method average method < br >
+## 10、 Distributed system
+Including the Java programming implementation of MapReduce, Spark and Flink
 loading...
