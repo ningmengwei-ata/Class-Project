@@ -1,0 +1,9 @@
+<component name="ArtifactManager">
+  <artifact type="jar" build-on-make="true" name="avg">
+    <output-path>$PROJECT_DIR$/out/artifacts/avg</output-path>
+    <root id="archive" name="avg.jar">
+      <element id="module-output" name="DSPP_Exercise" />
+      <element id="module-source" name="DSPP_Exercise" />
+    </root>
+  </artifact>
+</component>

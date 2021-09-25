@@ -1,0 +1,9 @@
+<component name="ArtifactManager">
+  <artifact type="jar" build-on-make="true" name="grade2">
+    <output-path>$USER_HOME$/Desktop</output-path>
+    <root id="archive" name="grade2.jar">
+      <element id="module-output" name="DSPP_Exercise" />
+      <element id="module-source" name="DSPP_Exercise" />
+    </root>
+  </artifact>
+</component>

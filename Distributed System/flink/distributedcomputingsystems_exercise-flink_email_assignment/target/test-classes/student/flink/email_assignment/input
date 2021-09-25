@@ -1,0 +1,5 @@
+APPLY 12345 1 1 *invalid
+APPLY 22222 1 3 a_name
+APPLY 25222 1 3 a_name
+REVOKE 22222 1 3 a_name
+APPLY 25222 1 3 b_name
