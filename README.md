@@ -27,8 +27,8 @@ shlab in CMU<br>
 3.EM算法（同卵双胞胎问题）<br>
 4.随机投点法 平均值法<br>
 ## 十、分布式系统
-包括mapreduce、spark、flink 的java编程实现
-loading...持续更新中
+包括mapreduce、spark、flink 的java编程实现<br>
+# loading...持续更新中
 
 
 ## ENGLISH VERSION
@@ -61,5 +61,5 @@ Treasure hunt game development (PostgreSQL version & mongodb version) < br >
 3. EM algorithm (identical twins problem) < br >
 4. Random point method average method < br >
 ## 10、 Distributed system
-Including the Java programming implementation of MapReduce, Spark and Flink
-loading...
+Including the Java programming implementation of MapReduce, Spark and Flink<br>
+# loading...
