@@ -1,0 +1,44 @@
+##STARTING Version 1.0
+Sat 02 Oct 2021 02:24:03 AM PDT
+##Compiler: clang clang++
+##CFlags: -I. -O1 
+##CPPFlags: -std=c++14 -I. -O1 
+System Information collected by program: 
+##Start machine report version 1.0
+##Compiler
+GCC version Clang 10.0.0 
+Compiled for LP64
+glibc version: 2.31
+##Target CPU
+Compiled for x86 64bit
+##Physical CPU
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 142
+model name	: Intel(R) Core(TM) i5-8279U CPU @ 2.40GHz
+stepping	: 10
+microcode	: 0xd6
+cpu MHz		: 2399.650
+cache size	: 6144 KB
+fpu		: yes
+fpu_exception	: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ss syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon nopl xtopology tsc_reliable nonstop_tsc cpuid pni pclmulqdq ssse3 fma cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand hypervisor lahf_lm abm 3dnowprefetch cpuid_fault invpcid_single pti ssbd ibrs ibpb stibp fsgsbase tsc_adjust bmi1 avx2 smep bmi2 invpcid rdseed adx smap clflushopt xsaveopt xsavec xsaves arat md_clear flush_l1d arch_capabilities
+cache_alignment	: 64
+Cache Level 1 = 32K
+Cache Level 1 = 32K
+Cache Level 2 = 256K
+Cache Level 3 = 6144K
+CPU is Little Endian
+##Machine
+Machine has 1 CPUs
+Machine has 1 CPUs configured
+Machine has 1.91 GBytes of RAM
+Machine using 4.00 KBytes pagesize
+##Operating System
+Kernel OS Name: Linux
+Kernel OS Release: 5.11.0-36-generic
+Kernel OS Version: #40~20.04.1-Ubuntu SMP Sat Sep 18 02:14:19 UTC 2021
+Kernel OS Machine: x86_64
+##End machine report
+Sat 02 Oct 2021 02:24:03 AM PDT
+##END Version 1.0

@@ -1,0 +1,97 @@
+        -:    0:Source:matrix_multiply.c
+        -:    0:Graph:matrix_multiply.gcno
+        -:    0:Data:matrix_multiply.gcda
+        -:    0:Runs:1
+        -:    0:Programs:1
+        -:    1:/**
+        -:    2: * Copyright (c) 2012 MIT License by 6.172 Staff
+        -:    3: *
+        -:    4: * Permission is hereby granted, free of charge, to any person obtaining a copy
+        -:    5: * of this software and associated documentation files (the "Software"), to
+        -:    6: * deal in the Software without restriction, including without limitation the
+        -:    7: * rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+        -:    8: * sell copies of the Software, and to permit persons to whom the Software is
+        -:    9: * furnished to do so, subject to the following conditions:
+        -:   10: *
+        -:   11: * The above copyright notice and this permission notice shall be included in
+        -:   12: * all copies or substantial portions of the Software.
+        -:   13: *
+        -:   14: * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+        -:   15: * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+        -:   16: * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+        -:   17: * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+        -:   18: * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+        -:   19: * FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+        -:   20: * IN THE SOFTWARE.
+        -:   21: **/
+        -:   22:
+        -:   23:#include "./matrix_multiply.h"
+        -:   24:
+        -:   25:#include <stdio.h>
+        -:   26:#include <stdlib.h>
+        -:   27:#include <unistd.h>
+        -:   28:#include <sys/types.h>
+        -:   29:#include <sys/stat.h>
+        -:   30:#include <sys/mman.h>
+        -:   31:#include <fcntl.h>
+        -:   32:#include <math.h>
+        -:   33:#include <string.h>
+        -:   34:#include "./tbassert.h"
+        -:   35:// Allocates a row-by-cols matrix and returns it
+        3:   36:matrix* make_matrix(int rows, int cols) {
+        3:   37:  matrix* new_matrix = malloc(sizeof(matrix));
+        -:   38:
+        -:   39:  // Set the number of rows and columns
+        3:   40:  new_matrix->rows = rows;
+        3:   41:  new_matrix->cols = cols;
+        -:   42:
+        -:   43:  // Allocate a buffer big enough to hold the matrix.
+        3:   44:  new_matrix->values = (int**)malloc(sizeof(int*) * rows);
+       15:   45:  for (int i = 0; i < rows; i++) {
+       12:   46:    new_matrix->values[i] = (int*)malloc(sizeof(int) * cols);
+       12:   47:  }
+        -:   48:
+        3:   49:  return new_matrix;
+        -:   50:}
+        -:   51:
+        -:   52:// Frees an allocated matrix
+        3:   53:void free_matrix(matrix* m) {
+       15:   54:  for (int i = 0; i < m->rows; i++) {
+       12:   55:    free(m->values[i]);
+       12:   56:  }
+        3:   57:  free(m->values);
+        3:   58:  free(m);
+        3:   59:}
+        -:   60:
+        -:   61:// Print matrix
+        3:   62:void print_matrix(const matrix* m) {
+        3:   63:  printf("------------\n");
+       15:   64:  for (int i = 0; i < m->rows; i++) {
+       60:   65:    for (int j = 0; j < m->cols; j++) {
+       48:   66:      printf("  %3d  ", m->values[i][j]);
+       48:   67:    }
+       12:   68:    printf("\n");
+       12:   69:  }
+        3:   70:  printf("------------\n");
+        3:   71:}
+        -:   72:
+        -:   73:
+        -:   74:// Multiply matrix A*B, store result in C.
+        1:   75:int matrix_multiply_run(const matrix* A, const matrix* B, matrix* C) {
+        -:   76:
+        1:   77:  tbassert(A->cols == B->rows,
+        -:   78:           "A->cols = %d, B->rows = %d\n", A->cols, B->rows);
+        1:   79:  tbassert(A->rows == C->rows,
+        -:   80:           "A->rows = %d, C->rows = %d\n", A->rows, C->rows);
+        1:   81:  tbassert(B->cols == C->cols,
+        -:   82:           "B->cols = %d, C->cols = %d\n", B->cols, C->cols);
+        5:   83:  for (int i = 0; i < A->rows; i++) {
+       20:   84:    for (int j = 0; j < B->cols; j++) {
+       80:   85:      for (int k = 0; k < A->cols; k++) {
+       64:   86:        C->values[i][j] += A->values[i][k] * B->values[k][j];
+       64:   87:      }
+       16:   88:    }
+        4:   89:  }
+        -:   90:
+        1:   91:  return 0;
+        -:   92:}

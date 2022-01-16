@@ -1,0 +1,174 @@
+        -:    0:Source:testbed.c
+        -:    0:Graph:testbed.gcno
+        -:    0:Data:testbed.gcda
+        -:    0:Runs:1
+        -:    0:Programs:1
+        -:    1:/**
+        -:    2: * Copyright (c) 2012 MIT License by 6.172 Staff
+        -:    3: *
+        -:    4: * Permission is hereby granted, free of charge, to any person obtaining a copy
+        -:    5: * of this software and associated documentation files (the "Software"), to
+        -:    6: * deal in the Software without restriction, including without limitation the
+        -:    7: * rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+        -:    8: * sell copies of the Software, and to permit persons to whom the Software is
+        -:    9: * furnished to do so, subject to the following conditions:
+        -:   10: *
+        -:   11: * The above copyright notice and this permission notice shall be included in
+        -:   12: * all copies or substantial portions of the Software.
+        -:   13: *
+        -:   14: * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+        -:   15: * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+        -:   16: * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+        -:   17: * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+        -:   18: * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+        -:   19: * FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+        -:   20: * IN THE SOFTWARE.
+        -:   21: **/
+        -:   22:
+        -:   23:
+        -:   24:/**
+        -:   25: * testbed.c:
+        -:   26: *
+        -:   27: * This file runs your code, timing its execution and printing out the result.
+        -:   28: **/
+        -:   29:
+        -:   30:#include <stdio.h>
+        -:   31:#include <unistd.h>
+        -:   32:#include <stdlib.h>
+        -:   33:#include <string.h>
+        -:   34:#include <time.h>
+        -:   35:
+        -:   36:#include "./fasttime.h"
+        -:   37:#include "./matrix_multiply.h"
+        -:   38:
+        -:   39:
+        1:   40:int main(int argc, char** argv) {
+        1:   41:  int optchar = 0;
+        1:   42:  int show_usec = 0;
+        1:   43:  int should_print = 0;
+        1:   44:  int use_zero_matrix = 0;
+        -:   45:
+        -:   46:  // Always use the same seed, so that our tests are repeatable.
+        1:   47:  unsigned int randomSeed = 1;
+        -:   48:
+        -:   49:  matrix* A;
+        -:   50:  matrix* B;
+        -:   51:  matrix* C;
+        -:   52:
+        1:   53:  const int kMatrixSize = 4;
+        -:   54:
+        -:   55:
+        -:   56:  // Parse command line arguments
+        2:   57:  while ((optchar = getopt(argc, argv, "upz")) != -1) {
+        1:   58:    switch (optchar) {
+        -:   59:      case 'u':
+    #####:   60:        show_usec = 1;
+    #####:   61:        break;
+        -:   62:      case 'p':
+        1:   63:        should_print = 1;
+        1:   64:        break;
+        -:   65:      case 'z':
+    #####:   66:        use_zero_matrix = 1;
+    #####:   67:        break;
+        -:   68:      default:
+    #####:   69:        printf("Ignoring unrecognized option: %c\n", optchar);
+    #####:   70:        continue;
+        -:   71:    }
+        -:   72:  }
+        -:   73:
+        -:   74:  // This is a trick to make the memory bug leads to a wrong output.
+        1:   75:  int size = sizeof(int) * 4;
+        -:   76:  int* temp[20];
+        -:   77:
+       21:   78:  for (int i = 0; i < 20; i++) {
+       20:   79:    temp[i] = (int*)malloc(size);
+       20:   80:    memset(temp[i], 1, size);
+       20:   81:  }
+        1:   82:  int total = 0;
+       21:   83:  for (int i = 0; i < 20; i++) {
+      100:   84:    for (int j = 0; j < 4; j++) {
+       80:   85:      total += temp[i][j];
+       80:   86:    }
+       20:   87:  }
+        1:   88:  if (!total) printf("Trick to stop mallocs from being optimized out.");
+       21:   89:  for (int i = 0; i < 20; i++) {
+       20:   90:    free(temp[i]);
+       20:   91:  }
+        -:   92:
+        1:   93:  fprintf(stderr, "Setup\n");
+        -:   94:
+        1:   95:  A = make_matrix(kMatrixSize, kMatrixSize);
+        1:   96:  B = make_matrix(kMatrixSize, kMatrixSize);
+        1:   97:  C = make_matrix(kMatrixSize, kMatrixSize);
+        -:   98:
+        1:   99:  if (use_zero_matrix) {
+    #####:  100:    for (int i = 0; i < A->rows; i++) {
+    #####:  101:      for (int j = 0; j < A->cols; j++) {
+    #####:  102:        A->values[i][j] = 0;
+    #####:  103:      }
+    #####:  104:    }
+    #####:  105:    for (int i = 0; i < B->rows; i++) {
+    #####:  106:      for (int j = 0; j < B->cols; j++) {
+    #####:  107:        B->values[i][j] = 0;
+    #####:  108:      }
+    #####:  109:    }
+        -:  110:    //notice C need to be intialezed
+    #####:  111:    for(int i=0;i<A->rows;i++){
+    #####:  112:        for(int j=0;j<B->cols;j++){
+    #####:  113:            C->values[i][j]=0;
+    #####:  114:        }
+    #####:  115:    }
+    #####:  116:  } else {
+        5:  117:    for (int i = 0; i < A->rows; i++) {
+       20:  118:      for (int j = 0; j < A->cols; j++) {
+       16:  119:        A->values[i][j] = rand_r(&randomSeed) % 10;
+       16:  120:      }
+        4:  121:    }
+        5:  122:    for (int i = 0; i < B->rows; i++) {
+       20:  123:      for (int j = 0; j < B->cols; j++) {
+       16:  124:        B->values[i][j] = rand_r(&randomSeed) % 10;
+       16:  125:      }
+        4:  126:    }
+        -:  127:    //notice C need to be intialezed
+        5:  128:    for(int i=0;i<A->rows;i++){
+       20:  129:        for(int j=0;j<B->cols;j++){
+       16:  130:            C->values[i][j]=0;
+       16:  131:        }
+        4:  132:    }
+        -:  133:  }
+        -:  134:
+        1:  135:  if (should_print) {
+        1:  136:    printf("Matrix A: \n");
+        1:  137:    print_matrix(A);
+        -:  138:
+        1:  139:    printf("Matrix B: \n");
+        1:  140:    print_matrix(B);
+        1:  141:  }
+        -:  142:
+        1:  143:  fprintf(stderr, "Running matrix_multiply_run()...\n");
+        -:  144:
+        1:  145:  fasttime_t time1 = gettime();
+        1:  146:  matrix_multiply_run(A, B, C);
+        1:  147:  fasttime_t time2 = gettime();
+        -:  148:
+        1:  149:  if (should_print) {
+        1:  150:    printf("---- RESULTS ----\n");
+        1:  151:    printf("Result: \n");
+        1:  152:    print_matrix(C);
+        1:  153:    printf("---- END RESULTS ----\n");
+        1:  154:  }
+        -:  155:
+        1:  156:  if (show_usec) {
+    #####:  157:    double elapsed = tdiff(time1, time2);
+    #####:  158:    printf("Elapsed execution time: %f usec\n",
+    #####:  159:           elapsed * (1000.0 * 1000.0));
+    #####:  160:  } else {
+        1:  161:    double elapsed = tdiff(time1, time2);
+        1:  162:    printf("Elapsed execution time: %f sec\n", elapsed);
+        -:  163:  }
+        -:  164:  //add the free matrix to free the memory
+        1:  165:  free_matrix(A);
+        1:  166:  free_matrix(B);
+        1:  167:  free_matrix(C);
+        1:  168:  return 0;
+        -:  169:}

@@ -1,0 +1,100 @@
+        -:    0:Source:././fasttime.h
+        -:    0:Graph:testbed.gcno
+        -:    0:Data:testbed.gcda
+        -:    0:Runs:1
+        -:    0:Programs:1
+        -:    1:/**
+        -:    2: * Copyright (c) 2014 MIT License by 6.172 Staff
+        -:    3: *
+        -:    4: * Permission is hereby granted, free of charge, to any person obtaining a copy
+        -:    5: * of this software and associated documentation files (the "Software"), to
+        -:    6: * deal in the Software without restriction, including without limitation the
+        -:    7: * rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+        -:    8: * sell copies of the Software, and to permit persons to whom the Software is
+        -:    9: * furnished to do so, subject to the following conditions:
+        -:   10: *
+        -:   11: * The above copyright notice and this permission notice shall be included in
+        -:   12: * all copies or substantial portions of the Software.
+        -:   13: *
+        -:   14: * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+        -:   15: * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+        -:   16: * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+        -:   17: * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+        -:   18: * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+        -:   19: * FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+        -:   20: * IN THE SOFTWARE.
+        -:   21: **/
+        -:   22:
+        -:   23:#ifndef INCLUDED_FASTTIME_DOT_H
+        -:   24:#define INCLUDED_FASTTIME_DOT_H
+        -:   25:
+        -:   26:#include <assert.h>
+        -:   27:
+        -:   28:#ifdef __MACH__
+        -:   29:#include <mach/mach_time.h>  // mach_absolute_time
+        -:   30:
+        -:   31:typedef uint64_t fasttime_t;
+        -:   32:
+        -:   33:
+        -:   34:// Return the current time.
+        -:   35:static inline fasttime_t gettime(void) {
+        -:   36:  return mach_absolute_time();
+        -:   37:}
+        -:   38:
+        -:   39:// Return the time different between the start and the end, as a float
+        -:   40:// in units of seconds.  This function does not need to be fast.
+        -:   41:// Implementation notes: See
+        -:   42:// https://developer.apple.com/library/mac/qa/qa1398/_index.html
+        -:   43:static inline double tdiff(fasttime_t start, fasttime_t end) {
+        -:   44:  static mach_timebase_info_data_t timebase;
+        -:   45:  int r = mach_timebase_info(&timebase);
+        -:   46:  assert(r == 0);
+        -:   47:  fasttime_t elapsed = end-start;
+        -:   48:  double ns = (double)elapsed * timebase.numer / timebase.denom;
+        -:   49:  return ns*1e-9;
+        -:   50:}
+        -:   51:
+        -:   52:static inline unsigned int random_seed_from_clock(void) {
+        -:   53:  fasttime_t now = gettime();
+        -:   54:  return (now & 0xFFFFFFFF) + (now>>32);
+        -:   55:}
+        -:   56:
+        -:   57:#else  // LINUX
+        -:   58:
+        -:   59:// We need _POSIX_C_SOURCE to pick up 'struct timespec' and clock_gettime.
+        -:   60:// #define _POSIX_C_SOURCE 200809L
+        -:   61:
+        -:   62:#include <time.h>
+        -:   63:
+        -:   64:typedef struct timespec fasttime_t;
+        -:   65:
+        -:   66:// Return the current time.
+        2:   67:static inline fasttime_t gettime(void) {
+        -:   68:  struct timespec s;
+        -:   69:#ifdef NDEBUG
+        -:   70:  clock_gettime(CLOCK_MONOTONIC, &s);
+        -:   71:#else
+        2:   72:  int r = clock_gettime(CLOCK_MONOTONIC, &s);
+        2:   73:  assert(r == 0);
+        -:   74:#endif
+        2:   75:  return s;
+        -:   76:}
+        -:   77:
+        -:   78:// Return the time different between the start and the end, as a float
+        -:   79:// in units of seconds.  This function does not need to be fast.
+        1:   80:static inline double tdiff(fasttime_t start, fasttime_t end) {
+        1:   81:  return end.tv_sec - start.tv_sec + 1e-9*(end.tv_nsec - start.tv_nsec);
+        -:   82:}
+        -:   83:
+        -:   84:static inline unsigned int random_seed_from_clock(void) {
+        -:   85:  fasttime_t now = gettime();
+        -:   86:  return now.tv_sec + now.tv_nsec;
+        -:   87:}
+        -:   88:
+        -:   89:// Poison these symbols to help find portability problems.
+        -:   90:int clock_gettime(clockid_t, struct timespec *) __attribute__((deprecated));
+        -:   91:time_t time(time_t *) __attribute__((deprecated));
+        -:   92:
+        -:   93:#endif  // LINUX
+        -:   94:
+        -:   95:#endif  // INCLUDED_FASTTIME_DOT_H
