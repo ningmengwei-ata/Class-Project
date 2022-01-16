@@ -28,7 +28,12 @@ shlab in CMU<br>
 4.随机投点法 平均值法<br>
 ## 十、分布式系统
 包括mapreduce、spark、flink 的java编程实现<br>
-## loading...持续更新中
+## 十一、当代人工智能
+包括文本分类（textCNN)、CNN手写体识别、德英机器翻译(tensorflow seq2seq)、基于预训练的节点分类(bert)<br>
+## 十二、计算机视觉
+cs231n assignment1&2&3<br>
+## 十三、软件系统优化
+mit系统assignments&基于opentuner的编译优化器<br>
 
 
 ## ENGLISH VERSION
@@ -62,4 +67,9 @@ Treasure hunt game development (PostgreSQL version & mongodb version) < br >
 4. Random point method average method < br >
 ## 10、 Distributed system
 Including the Java programming implementation of MapReduce, Spark and Flink<br>
-## loading...
+## 11. Contemporary Artificial Intelligence
+Including text classification (textCNN), MNIST handwriting recognition(CNN), German-English machine translation (tensorflow seq2seq), node classification based on pre-training model (bert hugging face)<br>
+## 12. Computer Vision
+cs231n assignment1&2&3<br>
+## 13. software system optimization
+MIT system course assignments & opentuner-based compiler optimizer<br>
